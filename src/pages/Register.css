@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+.register-button-container{
+    padding: 30px 0px 30px;
+}
+
+.register-button{
+    position: relative;
+    background-color: var(--background-base,#1ed760);
+    color: var(--text-base,#000000);
+    border-radius: 500px;
+    padding: 14px 32px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.register-button:hover{
+    transform: scale(1.05);
+    background-color: var(--background-base,#31e670);
+}
+
+.register-login-button{
+    box-sizing: border-box;
+    font-family: spotify-circular, Helvetica, Arial, sans-serif;
+    display: block;
+    padding: 0px 0px 1em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: inherit;
+}
+
+.register-href{
+    color: rgb(29, 185, 84);
+    text-decoration: underline;
+}
+
+.register-href:hover{
+    color: rgb(116, 227, 155);
+}
+
+.register-error-msg-ajax{
+    color: #fb5252;
+    font-size: 16px;
+    display:none;
+    text-align:left;
+    margin: 0px;
+    font-weight: 800;
+}

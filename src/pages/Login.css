@@ -1,0 +1,133 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+.login-background{
+    background-color: #ffffff;
+    color: rgb(18, 18, 18);
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-title-container{
+    padding: 25px 0px 20px;
+    justify-content: center;
+}
+
+.login-title{
+    color: #000000;
+    font-size:45px;
+}
+
+.login-line-divider{
+    border-top: 1px solid rgb(217, 218, 220);
+    padding-bottom: 20px;
+}
+
+.login-container{
+    flex: 3 1 0%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.login-form-container{
+    max-width: 450px;
+    width: 100%;
+}
+
+.login-error-msg{
+    display: flex;
+    background-color: var(--background-base,#e91429);
+    color: var(--text-base,#ffffff);
+    padding: 12px 16px 10px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+.login-input{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    line-height: 20px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.login-input-text{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    width: 100%;
+    padding-bottom: 8px;
+    text-align: left;
+}
+
+.login-input-box{
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: none;
+    letter-spacing: normal;
+    width: 100%;
+    box-sizing: border-box;
+    padding:17px;
+}
+
+.login-button-container{
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 16px;
+    text-align: right;
+}
+
+.login-button{
+    position: relative;
+    background-color: var(--background-base,#1ed760);
+    color: var(--text-base,#000000);
+    border-radius: 500px;
+    padding: 14px 32px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.login-button:hover{
+    transform: scale(1.05);
+    background-color: var(--background-base,#31e670);
+}
+
+.login-register-text{
+    margin-top: 0;
+    font-size: 18px;
+    line-height: 3rem;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight:900;
+    margin: 0 0 18px;
+}
+
+.login-register-button{
+    /* position: relative; */
+    width: 100%;
+    color: var(--text-base,rgb(82, 82, 82));
+    border-radius: 500px;
+    padding: 14px 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: transparent;
+    border: 1px solid;
+    border-color: rgb(158, 158, 158);
+    text-decoration-line: none;
+}
+
+.login-register-button:hover{
+    border-color: rgb(0, 0, 0);
+}

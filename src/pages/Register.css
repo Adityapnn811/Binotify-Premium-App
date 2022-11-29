@@ -46,7 +46,7 @@
 .register-error-msg-ajax{
     color: #fb5252;
     font-size: 16px;
-    display:none;
+    /* display:none; */
     text-align:left;
     margin: 0px;
     font-weight: 800;

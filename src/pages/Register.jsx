@@ -1,10 +1,32 @@
+import React, { useState } from 'react';
 import './Register.css'
 import axios from 'axios'
 import { useCookies } from 'react-cookie';
 
+const isEmail = (email) =>
+    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+
 function Register(){
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
-    console.log(cookies)
+    
+    const [values, setValues] = useState("");
+    const [errorMsg, seterrorMsg] = useState("");
+
+    const validateEmail = event =>{
+        console.log("yeay")
+        console.log(values)
+        if(event.target.value == ""){
+            console.log("aaaaaaaa")
+            seterrorMsg("You need to enter your email")
+        }else{
+            if (!isEmail(event.target.value)) {
+                seterrorMsg("This email is invalid. Make sure it's written like example@email.com");
+            } else {
+                seterrorMsg(null);
+            }
+        }
+        setValues(event.target.value);
+    }
 
     const registerJSON = async (e) =>{
         e.preventDefault();
@@ -44,13 +66,13 @@ function Register(){
                                 <div class="login-input">
                                     <label class="login-input-text" for="username" required> Username </label>
                                     <input class="login-input-box" placeholder="Enter your username" type="text" name="username" id="username" required onkeyup="processUsernameChange(this.value)"/>
-                                    {/* <p class="register-error-msg-ajax" id="errorMsgUsername">a</p> */}
                                 </div>
                                 
                                 <div class="login-input">
                                     <label class="login-input-text" requires> Email </label>
-                                    <input class="login-input-box" placeholder="Enter your email" type="text" name="email" id="email" required onkeyup="processEmailChange(this.value)"/>
-                                    {/* <p class="register-error-msg-ajax" id="EMAILL">b</p> */}
+                                    <input class="login-input-box" placeholder="Enter your email" type="text" name="email" id="email" onChange={validateEmail}/>
+
+                                    {errorMsg && <div className='register-error-msg-ajax'> {errorMsg} </div>}
                                 </div>
 
                                 <div class="login-input">

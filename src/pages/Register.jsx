@@ -40,11 +40,12 @@ function Register(){
         }
         console.log(data)
         await axios.post('http://localhost:5000/register', data).then(response=>{
-            console.log("HALOOOOOOOOOOOOOOO")
-            console.log(response.data)
-            console.log(response)
+            // console.log("HALOOOOOOOOOOOOOOO")
+            // console.log(response.data)
+            // console.log(response)
             setCookie("token", response.data.token)
-            console.log(cookies)
+            setCookie("isAdmin", response.data.data.isAdmin)
+            // console.log(cookies)
 
         }).catch(err =>{
             // console.log(response.data)

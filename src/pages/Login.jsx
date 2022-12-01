@@ -26,9 +26,10 @@ function Login() {
             console.log(response.data)
             console.log("ini response")
             console.log(response)
-            // console.log("ini cookie")
-            // setCookie("token", response.data.token)
-            // console.log(cookies)
+            console.log("ini cookie")
+            setCookie("token", response.data.token)
+            setCookie("isAdmin", response.data.data.isAdmin)
+            console.log(cookies)
 
         }).catch(err =>{
             console.log("DIA KESINI")

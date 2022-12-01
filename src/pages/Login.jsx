@@ -12,6 +12,8 @@ function Login() {
 
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
+    const [errorLoginMsg, seterrorLoginMsg] = useState("");
+
     const loginJSON = async (e) =>{
         e.preventDefault();
         console.log("MASUK SINI")
@@ -30,10 +32,12 @@ function Login() {
             setCookie("token", response.data.token)
             setCookie("isAdmin", response.data.data.isAdmin)
             console.log(cookies)
+            seterrorLoginMsg(response.data.data)
 
         }).catch(err =>{
             console.log("DIA KESINI")
             // console.log(err.response.data.error)
+            seterrorLoginMsg(err.response.data.data)
             
         })
     }
@@ -48,6 +52,7 @@ function Login() {
 
             <div className="login-container">
                 <div className="login-form-container">
+                    {errorLoginMsg && <div className='login-error-msg'> {errorLoginMsg} </div>}   
                     <form class="login-form">
                         <div className="login-input">
                             <label className="login-input-text" for="uname"> Email address or username </label>

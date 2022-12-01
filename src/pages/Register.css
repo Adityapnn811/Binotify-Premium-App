@@ -51,3 +51,13 @@
     margin: 0px;
     font-weight: 800;
 }
+
+.register-error-msg{
+    display: flex;
+    background-color: var(--background-base,#e91429);
+    color: var(--text-base,#ffffff);
+    padding: 12px 16px 10px;
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}

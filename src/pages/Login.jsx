@@ -9,8 +9,10 @@ function Login() {
     const routeChangeRegister = () =>{ 
         navigate("/register");
     }
-
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    if (cookies.token) {
+        navigate("/subscription");
+    }
 
     const [errorLoginMsg, seterrorLoginMsg] = useState("");
 

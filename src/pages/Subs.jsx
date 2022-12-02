@@ -7,53 +7,8 @@ import { useCookies } from 'react-cookie';
 
 function Subs() {
     let navigate = useNavigate(); 
-    const jsonnya = {
-        "data": [
-            {
-                "creatorId": "1",
-                "status": "PENDING",
-                "subscriberId": "1"
-            },
-            {
-                "creatorId": "1",
-                "status": "PENDING",
-                "subscriberId": "3"
-            },
-            {
-                "creatorId": "2",
-                "status": "PENDING",
-                "subscriberId": "3"
-            },
-            {
-                "creatorId": "2",
-                "status": "PENDING",
-                "subscriberId": "4"
-            },
-            {
-                "creatorId": "3",
-                "status": "PENDING",
-                "subscriberId": "1"
-            },
-            {
-                "creatorId": "3",
-                "status": "PENDING",
-                "subscriberId": "2"
-            },
-            {
-                "creatorId": "3",
-                "status": "PENDING",
-                "subscriberId": "3"
-            },
-            {
-                "creatorId": "3",
-                "status": "PENDING",
-                "subscriberId": "4"
-            }
-        ]
-    }
     const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [subs, setSubs] = useState({data: []});
-    const [subsPaginated, setSubsPaginated] = useState({data: []});
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState(0);
 
@@ -171,7 +126,7 @@ function Subs() {
                 
                 </div>
                 <div class="title-divider"></div>
-                {jsonnya.data.map((item, i) => (
+                {subs.data.map((item, i) => (
                     <div class="subs-result" key={i} >
                         <div class="subs-result-content">{item.creatorId}</div>
                         <div class="subs-result-content">{item.subscriberId}</div>

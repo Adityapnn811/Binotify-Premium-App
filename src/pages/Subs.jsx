@@ -157,8 +157,10 @@ function Subs() {
                     </div>
                 ))}
             </div>
-            {page < totalPage ? <button onClick={addPage}>Next</button> : null}
-            {page > totalPage ?<button onClick={substractPage}>Prev</button> : null}
+            <div class='button-container'>
+                {page > 1 ?<button onClick={substractPage} class="button-response-text">Prev</button> : null}
+                {page < totalPage ? <button onClick={addPage} class="button-response-text">Next</button> : null}
+            </div>
 
         </div>
     )

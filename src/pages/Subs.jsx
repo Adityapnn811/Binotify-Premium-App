@@ -65,6 +65,7 @@ function Subs() {
     const logout = () => {
         removeCookie("token")
         removeCookie("isAdmin")
+        removeCookie("name")
         navigate("/login")
     }
 
@@ -118,21 +119,21 @@ function Subs() {
 
             <div class="subs-title">Permintaan Subscription</div>
             
-            <div class="subs-body">
-                <div class="subs-result"> 
-                    <div class="subs-result-content">Id Penyanyi</div>
-                    <div class="subs-result-content">Id Subscriber</div>
-                    <div class="subs-result-content">Response</div>
+            <div className="subs-body">
+                <div className="subs-result"> 
+                    <div className="subs-result-content">Id Penyanyi</div>
+                    <div className="subs-result-content">Id Subscriber</div>
+                    <div className="subs-result-content">Response</div>
                 
                 </div>
-                <div class="title-divider"></div>
+                <div className="title-divider"></div>
                 {subs.data.map((item, i) => (
-                    <div class="subs-result" key={i} >
-                        <div class="subs-result-content">{item.creatorId}</div>
-                        <div class="subs-result-content">{item.subscriberId}</div>
-                        <div class="subs-result-content">
-                            <button class="button-response-accept" onClick={(e) => {acceptSubs(e, item.creatorId, item.subscriberId)}}>Accept</button>
-                            <button class="button-response-reject" onClick={(e) => {rejectSubs(e, item.creatorId, item.subscriberId)}}>Reject</button>
+                    <div className="subs-result" key={i} >
+                        <div className="subs-result-content">{item.creatorId}</div>
+                        <div className="subs-result-content">{item.subscriberId}</div>
+                        <div className="subs-result-content">
+                            <button className="button-response-accept" onClick={(e) => {acceptSubs(e, item.creatorId, item.subscriberId)}}>Accept</button>
+                            <button className="button-response-reject" onClick={(e) => {rejectSubs(e, item.creatorId, item.subscriberId)}}>Reject</button>
                         </div>
                     </div>
                 ))}

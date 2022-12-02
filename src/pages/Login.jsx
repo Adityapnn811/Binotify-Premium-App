@@ -5,13 +5,15 @@ import './Login.css'
 import { useCookies } from 'react-cookie';
 
 function Login() {
-    let navigate = useNavigate(); 
+    const [cookies, setCookie, removeCookie] = useCookies(['token', 'isAdmin', 'name']);
+    const navigate = useNavigate();
+
+    if (cookies.token) {
+        navigate("/songs");
+    }
+
     const routeChangeRegister = () =>{ 
         navigate("/register");
-    }
-    const [cookies, setCookie, removeCookie] = useCookies(['token']);
-    if (cookies.token) {
-        navigate("/subscription");
     }
 
     const [errorLoginMsg, seterrorLoginMsg] = useState("");
@@ -33,7 +35,8 @@ function Login() {
             console.log("ini cookie")
             setCookie("token", response.data.token)
             setCookie("isAdmin", response.data.data.isAdmin)
-            console.log(cookies)
+            setCookie("name", response.data.data.name)
+            console.log(cookies.token, cookies.isAdmin, cookies.name)
             seterrorLoginMsg(response.data.data)
 
         }).catch(err =>{
@@ -55,28 +58,28 @@ function Login() {
             <div className="login-container">
                 <div className="login-form-container">
                     {errorLoginMsg && <div className='login-error-msg'> {errorLoginMsg} </div>}   
-                    <form class="login-form">
+                    <form className="login-form">
                         <div className="login-input">
-                            <label className="login-input-text" for="uname"> Email address or username </label>
-                            <input type="text" class="login-input-box" id="user_name" name="user_name" placeholder="Email address or username" required/>
+                            <label className="login-input-text" htmlFor="uname"> Email address or username </label>
+                            <input type="text" className="login-input-box" id="user_name" name="user_name" placeholder="Email address or username" required/>
                         </div>
 
-                        <div class="login-input" >
-                            <label class="login-input-text"  for="pwd">Password</label>
-                            <input class="login-input-box"  type="password" id="password" name="password" placeholder="Password" required/>
+                        <div className="login-input" >
+                            <label className="login-input-text"  htmlFor="pwd">Password</label>
+                            <input className="login-input-box"  type="password" id="password" name="password" placeholder="Password" required/>
                         </div>
 
-                        <div class="login-button-container">
-                            <button class="login-button" name="submit" id="submit" value="Login" onClick={(e) => loginJSON(e)}> LOG IN </button>
+                        <div className="login-button-container">
+                            <button className="login-button" name="submit" id="submit" value="Login" onClick={(e) => loginJSON(e)}> LOG IN </button>
                         </div>
 
-                        <p class="login-line-divider"></p>
+                        <p className="login-line-divider"></p>
 
                     </form>
 
-                    <div class="login-register-text">Don't have an account?</div>
+                    <div className="login-register-text">Don't have an account?</div>
 
-                    <button class="login-register-button" onClick={routeChangeRegister}> SIGN UP FOR BINOTIFY </button>
+                    <button className="login-register-button" onClick={routeChangeRegister}> SIGN UP FOR BINOTIFY </button>
 
 
                 </div>

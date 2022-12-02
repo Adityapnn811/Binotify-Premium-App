@@ -60,49 +60,49 @@ function Register(){
 
     return(
 
-        <div class="login-background">
-            <div class="login-title-container">
-                <a class="login-title"> BINOTIFY </a>
+        <div className="login-background">
+            <div className="login-title-container">
+                <a className="login-title"> BINOTIFY </a>
             </div>
-                <div class="login-container">
-                    <div class="login-form-container">
+                <div className="login-container">
+                    <div className="login-form-container">
                         {errorRegisterMsg && <div className='register-error-msg'> {errorRegisterMsg} </div>}
-                        <form method="post" class="login-form">
-                            <div class="login-input">
-                                <label class="login-input-text" for="username" required> Username </label>
-                                <input class="login-input-box" placeholder="Enter your username" type="text" name="username" id="username" required onkeyup="processUsernameChange(this.value)"/>
+                        <form method="post" className="login-form">
+                            <div className="login-input">
+                                <label className="login-input-text" for="username" required> Username </label>
+                                <input className="login-input-box" placeholder="Enter your username" type="text" name="username" id="username" required onkeyup="processUsernameChange(this.value)"/>
                             </div>
                             
-                            <div class="login-input">
-                                <label class="login-input-text" requires> Email </label>
-                                <input class="login-input-box" placeholder="Enter your email" type="text" name="email" id="email" onChange={validateEmail}/>
+                            <div className="login-input">
+                                <label className="login-input-text" requires> Email </label>
+                                <input className="login-input-box" placeholder="Enter your email" type="text" name="email" id="email" onChange={validateEmail}/>
 
                                 {errorMsg && <div className='register-error-msg-ajax'> {errorMsg} </div>}
                             </div>
 
-                            <div class="login-input">
-                                <label class="login-input-text" required> Password </label>
-                                <input class="login-input-box" placeholder="Enter your password" type="password" name="password" id="password" required/>
+                            <div className="login-input">
+                                <label className="login-input-text" required> Password </label>
+                                <input className="login-input-box" placeholder="Enter your password" type="password" name="password" id="password" required/>
                             </div>
 
-                            <div class="login-input">
-                                <label class="login-input-text" required> Confirm Password </label>
-                                <input class="login-input-box" placeholder="Enter your password again" type="password" name="confirm_password" required/>
+                            <div className="login-input">
+                                <label className="login-input-text" required> Confirm Password </label>
+                                <input className="login-input-box" placeholder="Enter your password again" type="password" name="confirm_password" required/>
                             </div>
 
-                            <div class="login-input">
-                                <label class="login-input-text" required> What should we call you? </label>
-                                <input class="login-input-box" placeholder="Enter a profile name" type="text" name="name" id="name" required/>
+                            <div className="login-input">
+                                <label className="login-input-text" required> What should we call you? </label>
+                                <input className="login-input-box" placeholder="Enter a profile name" type="text" name="name" id="name" required/>
                             </div>
 
-                            <div class="register-button-container">
-                                <button class="register-button" value="Submit" id="registerButton" onClick={(e) => registerJSON(e)}> SIGN UP </button>
+                            <div className="register-button-container">
+                                <button className="register-button" value="Submit" id="registerButton" onClick={(e) => registerJSON(e)}> SIGN UP </button>
                             </div>
                             
                         </form> 
-                            <p class="register-login-button">
+                            <p className="register-login-button">
                                 Have an account?
-                                <a class="register-href" href="/login">Login</a>
+                                <a className="register-href" href="/login">Login</a>
                             </p>
 
                     </div>

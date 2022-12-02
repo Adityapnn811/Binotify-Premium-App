@@ -33,21 +33,27 @@ function Subs() {
     }
     const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [subs, setSubs] = useState({data: []});
-    const [isOneElement, setIsOneElement] = useState(false);
+    const [subsPaginated, setSubsPaginated] = useState({data: []});
+    const [page, setPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(0);
+
     // fetch data using useEffect
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios.get(
-                'http://localhost:5000/subscription',
+                'http://localhost:5000/subscription/' + page,
                 {headers: {Authorization: "Bearer " + cookies.token}});
             if (result.data.data.creatorId) {
                 setSubs({data: [result.data.data]});
+                setTotalPage(result.data.pages)
             } else {
                 setSubs(result.data);
+                setTotalPage(result.data.pages);
             }
         };
         fetchData();
     }, []);
+
 
     // accept subscription
     const acceptSubs = async (e, creatorId, subscriberId) => {
@@ -86,6 +92,36 @@ function Subs() {
         removeCookie("isAdmin")
         navigate("/login")
     }
+
+    // render data
+    const addPage = async () => {
+        console.log(page)
+        let pageNew = page + 1
+        const result = await axios.get(
+            'http://localhost:5000/subscription/' + pageNew,
+            {headers: {Authorization: "Bearer " + cookies.token}});
+        if (result.data.data.creatorId) {
+            setSubs({data: [result.data.data]});
+        } else {
+            setSubs(result.data);
+        }
+        setPage(pageNew);
+    }
+
+    const substractPage = async () => {
+        console.log(page)
+        let pageNew = page - 1
+        const result = await axios.get(
+            'http://localhost:5000/subscription/' + pageNew,
+            {headers: {Authorization: "Bearer " + cookies.token}});
+        if (result.data.data.creatorId) {
+            setSubs({data: [result.data.data]});
+        } else {
+            setSubs(result.data);
+        }
+        setPage(pageNew);
+    }
+
     if (!cookies.token) {
         navigate("/login")
     }
@@ -121,6 +157,9 @@ function Subs() {
                     </div>
                 ))}
             </div>
+            {page < totalPage ? <button onClick={addPage}>Next</button> : null}
+            {page > totalPage ?<button onClick={substractPage}>Prev</button> : null}
+
         </div>
     )
 }

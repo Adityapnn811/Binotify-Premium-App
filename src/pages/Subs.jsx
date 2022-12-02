@@ -28,6 +28,26 @@ function Subs() {
                 "creatorId": "2",
                 "status": "PENDING",
                 "subscriberId": "4"
+            },
+            {
+                "creatorId": "3",
+                "status": "PENDING",
+                "subscriberId": "1"
+            },
+            {
+                "creatorId": "3",
+                "status": "PENDING",
+                "subscriberId": "2"
+            },
+            {
+                "creatorId": "3",
+                "status": "PENDING",
+                "subscriberId": "3"
+            },
+            {
+                "creatorId": "3",
+                "status": "PENDING",
+                "subscriberId": "4"
             }
         ]
     }
@@ -99,7 +119,12 @@ function Subs() {
     }
     return (
         <div class="bg-gradient-to-r from-cyan-500 to-blue-500" className='background-subs'>
-            <button onClick={logout}>Logout</button>
+            <div class="subs-navbar">
+                <button class="subs-logout-button" onClick={logout}>
+                        Logout
+                </button>
+            </div>
+
             <div class="subs-title">Permintaan Subscription</div>
             
             <div class="subs-body">
@@ -110,7 +135,7 @@ function Subs() {
                 
                 </div>
                 <div class="title-divider"></div>
-                {subs.data.map((item, i) => (
+                {jsonnya.data.map((item, i) => (
                     <div class="subs-result" key={i} >
                         <div class="subs-result-content">{item.creatorId}</div>
                         <div class="subs-result-content">{item.subscriberId}</div>

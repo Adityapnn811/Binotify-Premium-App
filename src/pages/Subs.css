@@ -8,12 +8,12 @@
 }
 
 .subs-body{
-    padding: 0px 20px 0px 20px;
+    padding: 0px 40px 0px 40px;
 }
 
 .subs-title{
     padding: 25px 0px 20px;
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
     width: 100%;
@@ -27,33 +27,50 @@
 .subs-result{
     display: grid;
     column-gap: 20px;
-    grid-template-columns: 150px 150px auto;
-    padding: 10px;
+    grid-template-columns: 25% 25% auto;
+    padding: 30px;
 }
+
 
 .subs-result-content{
     color: #b0b0aa;
     margin: 5px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     display: flex;
     flex-direction: row;
     text-align: center;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
 }
 
 .subs-table{
     display: flex;
     flex: column;
+    vertical-align: middle;
 }
 
 .button-response-accept{
     padding: 10px 25px 10px 25px;
-    background-color: green;
+    /* border-style: solid;
+    border-color: green; */
+    margin-right: 20px;
+    border-radius: 4px;
     border: 0;
+    display: flex;
+    background-color: green;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.button-response-accept:hover{
+    padding: 10px 25px 10px 25px;
+    background-color: rgb(4, 55, 4);
     margin-right: 20px;
     border-radius: 4px;
     display: flex;
+    border-style: solid;
+    border-color: green;
+    font-size: 1.4rem;
 }
 
 .button-response-reject{
@@ -62,4 +79,45 @@
     border: 0;
     border-radius: 4px;
     display: flex;
+    color: #fff;
+    font-size: 1.4rem;
 }
+.button-response-reject:hover{
+    padding: 10px 25px 10px 25px;
+    background-color: rgb(94, 8, 8);
+    border: 0;
+    border-radius: 4px;
+    display: flex;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.subs-navbar{
+    min-height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 35px;
+    margin-top: 5px;
+}
+
+.subs-logout-button{
+    background-color: red;
+    border-radius: 4px;
+    padding: 15px 40px 15px 40px;
+    border: none;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.subs-logout-button:hover{
+    background-color: rgb(78, 19, 19);
+    border-radius: 4px;
+    padding: 15px 40px 15px 40px;
+    border: none;
+}
+
+

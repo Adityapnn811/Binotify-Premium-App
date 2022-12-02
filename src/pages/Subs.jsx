@@ -6,7 +6,17 @@ import './Subs.css'
 import { useCookies } from 'react-cookie';
 
 function Subs() {
-    let navigate = useNavigate(); 
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    const navigate = useNavigate();
+    
+    if (!cookies.token) {
+        navigate("/login")
+    }
+
+    if (cookies.isAdmin === "false") {
+        navigate('/songs')
+    }
+
     const jsonnya = {
         "data": [
             {
@@ -31,7 +41,6 @@ function Subs() {
             }
         ]
     }
-    const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [subs, setSubs] = useState({data: []});
     const [isOneElement, setIsOneElement] = useState(false);
     // fetch data using useEffect
@@ -84,39 +93,30 @@ function Subs() {
     const logout = () => {
         removeCookie("token")
         removeCookie("isAdmin")
+        removeCookie("name")
         navigate("/login")
     }
-    if (!cookies.token) {
-        navigate("/login")
-    }
-    if (cookies.isAdmin === "false") {
-        return (
-            <div>
-                <button onClick={logout}>Logout</button>
-                <h1>Not Authorized</h1>
-            </div>
-        )
-    }
+
     return (
-        <div class="bg-gradient-to-r from-cyan-500 to-blue-500" className='background-subs'>
+        <div className="bg-gradient-to-r from-cyan-500 to-blue-500 background-subs">
             <button onClick={logout}>Logout</button>
-            <div class="subs-title">Permintaan Subscription</div>
+            <div className="subs-title">Permintaan Subscription</div>
             
-            <div class="subs-body">
-                <div class="subs-result"> 
-                    <div class="subs-result-content">Id Penyanyi</div>
-                    <div class="subs-result-content">Id Subscriber</div>
-                    <div class="subs-result-content">Response</div>
+            <div className="subs-body">
+                <div className="subs-result"> 
+                    <div className="subs-result-content">Id Penyanyi</div>
+                    <div className="subs-result-content">Id Subscriber</div>
+                    <div className="subs-result-content">Response</div>
                 
                 </div>
-                <div class="title-divider"></div>
+                <div className="title-divider"></div>
                 {subs.data.map((item, i) => (
-                    <div class="subs-result" key={i} >
-                        <div class="subs-result-content">{item.creatorId}</div>
-                        <div class="subs-result-content">{item.subscriberId}</div>
-                        <div class="subs-result-content">
-                            <button class="button-response-accept" onClick={(e) => {acceptSubs(e, item.creatorId, item.subscriberId)}}>Accept</button>
-                            <button class="button-response-reject" onClick={(e) => {rejectSubs(e, item.creatorId, item.subscriberId)}}>Reject</button>
+                    <div className="subs-result" key={i} >
+                        <div className="subs-result-content">{item.creatorId}</div>
+                        <div className="subs-result-content">{item.subscriberId}</div>
+                        <div className="subs-result-content">
+                            <button className="button-response-accept" onClick={(e) => {acceptSubs(e, item.creatorId, item.subscriberId)}}>Accept</button>
+                            <button className="button-response-reject" onClick={(e) => {rejectSubs(e, item.creatorId, item.subscriberId)}}>Reject</button>
                         </div>
                     </div>
                 ))}

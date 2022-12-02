@@ -14,7 +14,10 @@ Wesbite binotify premium merupakan sebuah untuk penyanyi yang memiliki lagu-lagu
 2. Jalankan `npm run dev` untuk menjalankan aplikasi
 
 ## Screenshot
-
+1. Halaman Login
+![Login](Screenshots/LoginPage.jpg)
+2. Halaman Register
+![Register](Screenshots/Register.jpg)
 
 ## Pembagian Tugas
 - Halaman Login: 13520096

@@ -18,6 +18,14 @@ Wesbite binotify premium merupakan sebuah untuk penyanyi yang memiliki lagu-lagu
 ![Login](Screenshots/LoginPage.jpg)
 2. Halaman Register
 ![Register](Screenshots/Register.jpg)
+3. Halaman Songs
+![Songs](Screenshots/songs.png)
+4. Halaman Songs Admin
+![Songs Admin](Screenshots/admin-songs.png)
+5. Halaman Edit Song
+![Edit Song](Screenshots/edit-song.png)
+6. Halaman Add Song
+![Add Song](Screenshots/add-song.png)
 
 ## Pembagian Tugas
 - Halaman Login: 13520096
